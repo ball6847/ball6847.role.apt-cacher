@@ -1,0 +1,8 @@
+---
+apt_cacher_path: /opt/apt-cacher
+apt_cacher_volume: /var/cache/apt-cacher
+apt_cacher_port: 3142
+
+# allow playbook to override these file paths
+# make sure you override theme with absolute path (built-in "playbook_dir" might be useful)
+apt_cacher_compose_file: templates/docker-compose.yml.j2

@@ -1,0 +1,16 @@
+galaxy_info:
+  author: Porawit Poboonma
+  description: Setup apt cacher via docker-compose
+  company: Porawit Poboonma
+  license: license (GPLv2, CC-BY, etc)
+  min_ansible_version: 1.2
+  platforms:
+  - name: Ubuntu
+    versions:
+    - 16.04
+    - 14.04
+  galaxy_tags:
+    - docker
+    - registry
+
+dependencies: []

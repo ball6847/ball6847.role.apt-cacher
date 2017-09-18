@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  apt_cacher:
+    image: clue/apt-cacher:latest
+    container_name: apt_cacher
+    restart: unless-stopped
+    ports:
+      - "{{ apt_cacher_port }}:3142"
+    volumes:
+      - "/etc/localtime:/etc/localtime"
+      - "{{ apt_cacher_volume }}:/var/cache/apt-cacher"

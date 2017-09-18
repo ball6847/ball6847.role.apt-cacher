@@ -1,0 +1,23 @@
+---
+- name: Create apt_cacher data path
+  file:
+    path: "{{ apt_cacher_path }}"
+    state: directory
+
+- name: Create docker-compose.yml
+  template:
+    src: "{{ apt_cacher_compose_file }}"
+    dest: "{{ apt_cacher_path }}/docker-compose.yml"
+
+# NOTE: docker-compose writes stdout to stderr (don't know why?, but just use 2>&1 for now)
+#       also we have no option and need to check output with color which doesn't make sense at all
+- name: Start apt-cacher container
+  shell: docker-compose up -d --remove-orphans 2>&1
+  args:
+    chdir: "{{ apt_cacher_path }}"
+  register: docker_compose_up
+  changed_when: |
+    "Creating apt_cacher ... \u001b[32mdone\u001b[0m" in docker_compose_up.stdout or
+    "Recreating apt_cacher ... \u001b[32mdone\u001b[0m" in docker_compose_up.stdout or
+    "Starting apt_cacher ... \u001b[32mdone\u001b[0m" in docker_compose_up.stdout
+  
