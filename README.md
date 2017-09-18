@@ -46,7 +46,7 @@ Example Playbook
   become: yes
   tags: [ apt_cacher ]
   roles:
-    - { role: ball6847.role.apt_cacher }
+    - { role: ball6847.role.apt-cacher }
 ```
 
 To override default template file.
@@ -57,7 +57,7 @@ To override default template file.
   become: yes
   tags: [ apt_cacher ]
   roles:
-    - { role: ball6847.role.apt_cacher, apt_cacher_compose_file: "{{ playbook_dir }}/templates/docker-compose.yml.j2" }
+    - { role: ball6847.role.apt-cacher, apt_cacher_compose_file: "{{ playbook_dir }}/templates/docker-compose.yml.j2" }
 ```
 
 License
