@@ -2,7 +2,6 @@ Ansible Role - ball6847.role.apt-cacher
 ============================================
 
 Setup apt cacher via docker and docker-compose.
-Tested on Ubuntu but it should work on any linux machine with docker installed.
 
 Requirements
 ------------
